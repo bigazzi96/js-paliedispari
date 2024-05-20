@@ -1,10 +1,36 @@
+let oddOrEven = prompt('pari o dispari').trim().toLowerCase();
+while (oddOrEven !== 'pari' && oddOrEven !== 'dispari'){
+     oddOrEven = prompt('pari o dispari').trim().toLowerCase();
+}
 
-//constante numero utente
-const numeroUtente = parseInt(prompt('Inserisci un numero da 1 a 5'), 10);
+ let userNumber = Number.parseInt(prompt('scegli un numero da 1 a 5').trim(), 10);
+ while ( Number.isNaN(userNumber) || userNumber < 1 ||  userNumber > 5 ){
+ userNumber = Number.parseInt(prompt('scegli un numero da 1 a 5').trim(), 10);
+ }
 
-//constante numero per computer
- const numeroComputer = getRandomNumber(1,5);
+ console.log(`L'utente ha scelto ${oddOrEven}, e il numero ${userNumber}`);
 
- 
- const somma = numeroUtente + numeroPc;
- console.log(somma);
+ const aINumber = getRandomInt(1, 5);
+ const sum = userNumber + aINumber;
+
+ console.log(`Il computer ha generato ${aINumber}, e la somma dei due numeri e' ${sum}`);
+
+ let result;
+
+if( isEven(sum) === true ){
+    result = 'pari';
+ } else {
+    result = 'dispari';
+ }
+
+ if( isOdd(sum) === false ){
+     result = 'pari';
+ } else {
+     result = 'dispari';
+}
+
+ if (result === oddOrEven){
+     console.log('L\'utente vince');
+ } else {
+     console.log('Il computer vince');
+ }
